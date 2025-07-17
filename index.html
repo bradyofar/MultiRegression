@@ -592,8 +592,7 @@ const independentVarNames = independentVarIndices.map(idx => parsedData.headers[
 const dependentVarName = parsedData.headers[dependentVarIndex];
 
 try {
-    // Use ml-regression's MultivariateLinearRegression
-    regressionModel = new ML.MultivariateLinearRegression(X, Y);
+regressionModel = new MultivariateLinearRegression(X, Y);
 
     const predictedY = regressionModel.predict(X);
     const residuals = Y.map((val, i) => val - predictedY[i]);
@@ -656,7 +655,7 @@ const ctx = $('scatterChart').getContext('2d');
 
 // For scatter plot, we can only show simple linear regression line for the selected X
 // We need to calculate a simple linear regression for the selected X and Y
-const simpleLinearModel = new ML.SimpleLinearRegression(xValues, yValues);
+const simpleLinearModel = new SimpleLinearRegression(xValues, yValues);
 const slope = simpleLinearModel.slope;
 const intercept = simpleLinearModel.intercept;
 
